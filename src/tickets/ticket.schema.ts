@@ -17,6 +17,9 @@ export class Ticket {
 
     @Prop({ required: true })
     price: number;
+
+    @Prop({ required: true })
+    imageUrl: string;
 }
 
 export const TicketSchema = SchemaFactory.createForClass(Ticket);

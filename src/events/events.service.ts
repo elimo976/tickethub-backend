@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateEventDto } from './dto/create-event.dto';
@@ -10,8 +10,27 @@ export class EventsService {
 
     // Crea nuovo evento
     async create(createEventDto: CreateEventDto): Promise<Event> {
-        const createdEvent = new this.eventModel(createEventDto);
-        return createdEvent.save();
+        try {
+            const createdEvent = new this.eventModel(createEventDto);
+            return await createdEvent.save();
+        } catch (error) {
+            // Log dell'errore per il debug
+            console.error('Error creating event:', error);
+    
+            // Controlla se l'errore è un errore di validazione di Mongoose
+            if (error.name === 'ValidationError') {
+                throw new HttpException({
+                    status: HttpStatus.BAD_REQUEST,
+                    error: 'Validation failed for the provided event data',
+                }, HttpStatus.BAD_REQUEST);
+            }
+    
+            // Altri tipi di errori
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Could not create the event due to an internal server error',
+            }, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     // Trova tutti gli eventi

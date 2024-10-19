@@ -28,6 +28,9 @@ export class Event {
     
     @Prop({ default: 0})
     availableTickets: number;// Array di IDs degli attendees
+
+    @Prop({ required: true })
+    imageUrl: string;
 }
 
 export const EventSchema = SchemaFactory.createForClass(Event);

@@ -5,13 +5,21 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { EventsModule } from './events/events.module';
 import { UsersModule } from './users/users.module';
 import { TicketsModule } from './tickets/tickets.module';
+import { HttpModule } from '@nestjs/axios';
+import { ConfigModule } from '@nestjs/config';
+import { TicketmasterModule } from './ticketmaster/ticketmaster.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb://localhost/tickethubdb'),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }), // Caricamento delle varibili degli environments
     EventsModule,
     UsersModule,
-    TicketsModule
+    TicketsModule,
+    HttpModule,
+    TicketmasterModule
   ],
   controllers: [AppController],
   providers: [AppService],
