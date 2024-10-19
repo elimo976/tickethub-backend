@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpException, HttpStatus, Param, Post, Put, Query } from '@nestjs/common';
 import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { TicketmasterService } from 'src/ticketmaster/ticketmaster.service';
@@ -50,6 +50,22 @@ export class EventsController {
         } catch (error) {
             console.error('Errore durante il popolamento del database: ', error);
             throw new HttpException('Errore nel popolamento del database', HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Endopoint per gestire le richieste di ricerca
+    @Get('search')
+    async search(@Query('keyword') keyword : string) {
+        try {
+            const events = await this.eventsService.searchEvents(keyword);
+
+            if (!events || events.length === 0) {
+                throw new HttpException('Nessun evento trovato per la ricerca', HttpStatus.NOT_FOUND);
+            }
+            return events;  // 200 OK
+        } catch (error) {
+            console.error('Errore durante la ricerca degli eventi: ', error);
+            throw new HttpException('Errore nella ricerca degli eventi', HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
