@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';  // Importa firstValueFrom
 
 @Injectable()
 export class TicketmasterService {
@@ -16,27 +16,34 @@ export class TicketmasterService {
         this.API_KEY = this.configService.get<string>('TICKETMASTER_API_KEY');
     }
 
-    async getEvents() {
+    async getEvents(countryCode: string, page: number): Promise<any> {
         try {
-            const url = `${this.API_URL}?apikey=${this.API_KEY}`;
-            const response = await firstValueFrom(this.httpService.get(url));
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching events from Ticketmaster:', error);
+            const response = await firstValueFrom(this.httpService.get(this.API_URL, {
+                params: {
+                    apikey: this.API_KEY,
+                    countryCode,
+                    page,
+                    size: 10,
+                },
+            }));
     
+            // Controllo per verificare se i dati contengono eventi
+            if (!response.data || !response.data._embedded || !response.data._embedded.events) {
+                console.warn(`Nessun evento trovato per il paese: ${countryCode}`);
+                return []; // Restituisci un array vuoto se non ci sono eventi
+            }
+    
+            return response.data._embedded.events; // Restituisce solo gli eventi
+        } catch (error) {
+            // Gestione degli errori
             if (error.response) {
-                // Se l'API Ticketmaster ha restituito una risposta d'errore
-                throw new HttpException({
-                    status: error.response.status,
-                    message: error.response.data || 'Error fetching events',
-                }, error.response.status);
+                console.error('Errore nella risposta dell\'API:', error.response.data);
+                throw new HttpException(`Errore Ticketmaster: ${error.response.data?.message || 'Errore sconosciuto'}`, HttpStatus.BAD_REQUEST);
             } else {
-                // Se l'errore non è legato alla risposta dell'API
-                throw new HttpException({
-                    status: HttpStatus.INTERNAL_SERVER_ERROR,
-                    message: 'Could not fetch events due to an internal server error',
-                }, HttpStatus.INTERNAL_SERVER_ERROR);
+                console.error('Errore di rete o di configurazione:', error.message);
+                throw new HttpException('Impossibile recuperare eventi da Ticketmaster:', HttpStatus.BAD_REQUEST);
             }
         }
     }
+    
 }

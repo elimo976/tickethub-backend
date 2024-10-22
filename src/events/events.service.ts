@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateEventDto } from './dto/create-event.dto';
@@ -6,6 +6,8 @@ import { Event, EventDocument } from './event.schema';
 
 @Injectable()
 export class EventsService {
+    private readonly logger = new Logger(EventsService.name);
+
     constructor(@InjectModel(Event.name) private eventModel: Model<EventDocument>) {}
 
     // Crea nuovo evento
@@ -31,23 +33,70 @@ export class EventsService {
     }
 
     // Cerca eventi tramite chiave di ricerca
+    // async searchEvents(keyword: string): Promise<Event[]> {
+    //     this.logger.log(`Searching events with keyword: ${keyword}`);
+
+    //     if (!keyword || typeof keyword !== 'string') {
+    //         throw new HttpException('Keyword non valida', HttpStatus.BAD_REQUEST);
+    //     }
+
+    //     try {
+    //         return await this.eventModel.find({
+    //             $or: [
+    //                 { title: { $regex: keyword, $options: 'i' } },
+    //                 { 'venues.name': { $regex: keyword, $options: 'i' } }, // Modificato per cercare anche per nome del luogo
+    //                 { 'venues.city.name': { $regex: keyword, $options: 'i' } },
+    //                 { category: { $regex: keyword, $options: 'i' } }
+    //             ]
+    //         }).exec();
+    //     } catch (error) {
+    //         console.error('Errore nella ricerca degli eventi:', error);
+    //         throw new HttpException({
+    //             status: HttpStatus.INTERNAL_SERVER_ERROR,
+    //             error: 'Impossibile cercare eventi a causa di un errore interno del server',
+    //         }, HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    // }
+
     async searchEvents(keyword: string): Promise<Event[]> {
+        this.logger.log(`Searching events with keyword: ${keyword}`);
+    
+        // Verifica se la keyword è valida
+        if (!keyword || typeof keyword !== 'string') {
+            this.logger.warn(`Invalid keyword provided: ${keyword}`);
+            throw new HttpException('Keyword non valida', HttpStatus.BAD_REQUEST);
+        }
+    
         try {
-            return await this.eventModel.find({
+            this.logger.log('Starting database query...');
+    
+            const events = await this.eventModel.find({
                 $or: [
                     { title: { $regex: keyword, $options: 'i' } },
-                    { location: { $regex: keyword, $options: 'i' } },
+                    { 'venues.name': { $regex: keyword, $options: 'i' } }, // Cercare per nome del luogo
+                    { 'venues.city.name': { $regex: keyword, $options: 'i' } },
                     { category: { $regex: keyword, $options: 'i' } }
                 ]
             }).exec();
+    
+            this.logger.log(`Database query completed. Found ${events.length} events for keyword: ${keyword}`);
+    
+            // Se non ci sono eventi trovati
+            if (events.length === 0) {
+                this.logger.warn(`No events found for keyword: ${keyword}`);
+            }
+    
+            return events;
+    
         } catch (error) {
-            console.error('Errore nella ricerca degli eventi:', error);
+            this.logger.error('Error occurred during the database query', error.stack);
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Impossibile cercare eventi a causa di un errore interno del server',
             }, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
 
     // Trova tutti gli eventi
     async findAll(): Promise<Event[]> {
@@ -74,7 +123,7 @@ export class EventsService {
             console.error('Errore durante la ricerca dell\'evento:', error);
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Could not find the event due to an internal server error',
+                error: 'Impossibile recuperare l\'evento a causa di un errore interno del server',
             }, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -88,10 +137,10 @@ export class EventsService {
             }
             return updatedEvent;
         } catch (error) {
-            console.error('Errore durante l\'aggiornamento dell\'evento:', error);
+            console.error('Errore durante l \'aggiornamento dell\'evento:', error);
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Could not update the event due to an internal server error',
+                error: 'Impossibile aggiornare l\'evento a causa di un errore interno al server',
             }, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
