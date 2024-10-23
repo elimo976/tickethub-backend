@@ -32,32 +32,6 @@ export class EventsService {
         }
     }
 
-    // Cerca eventi tramite chiave di ricerca
-    // async searchEvents(keyword: string): Promise<Event[]> {
-    //     this.logger.log(`Searching events with keyword: ${keyword}`);
-
-    //     if (!keyword || typeof keyword !== 'string') {
-    //         throw new HttpException('Keyword non valida', HttpStatus.BAD_REQUEST);
-    //     }
-
-    //     try {
-    //         return await this.eventModel.find({
-    //             $or: [
-    //                 { title: { $regex: keyword, $options: 'i' } },
-    //                 { 'venues.name': { $regex: keyword, $options: 'i' } }, // Modificato per cercare anche per nome del luogo
-    //                 { 'venues.city.name': { $regex: keyword, $options: 'i' } },
-    //                 { category: { $regex: keyword, $options: 'i' } }
-    //             ]
-    //         }).exec();
-    //     } catch (error) {
-    //         console.error('Errore nella ricerca degli eventi:', error);
-    //         throw new HttpException({
-    //             status: HttpStatus.INTERNAL_SERVER_ERROR,
-    //             error: 'Impossibile cercare eventi a causa di un errore interno del server',
-    //         }, HttpStatus.INTERNAL_SERVER_ERROR);
-    //     }
-    // }
-
     async searchEvents(keyword: string): Promise<Event[]> {
         this.logger.log(`Searching events with keyword: ${keyword}`);
     

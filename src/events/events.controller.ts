@@ -78,9 +78,6 @@ export class EventsController {
         }
     }
 
-    
-    
-
     // Endpoint per gestire le richieste di ricerca
     @Get('search')
     async search(@Query('keyword') keyword: string) {
@@ -97,15 +94,6 @@ export class EventsController {
             this.logger.error(`Error during event search: ${error.message}, error.stack`);
             throw error; // 400 KO
         }
-
-        //     if (!events || events.length === 0) {
-        //         throw new HttpException('Nessun evento trovato per la ricerca', HttpStatus.NOT_FOUND);
-        //     }
-        //     return events;  // 200 OK
-        // } catch (error) {
-        //     console.error('Errore durante la ricerca degli eventi: ', error);
-        //     throw new HttpException('Errore nella ricerca degli eventi', HttpStatus .INTERNAL_SERVER_ERROR);
-        // }
     }
 
     // Recupera tutti gli eventi

@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { firstValueFrom } from 'rxjs';  // Importa firstValueFrom
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class TicketmasterService {
