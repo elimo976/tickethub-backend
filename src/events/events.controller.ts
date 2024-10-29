@@ -39,29 +39,33 @@ export class EventsController {
                 while (hasMoreEvents) {
                     const events = await this.ticketmasterService.getEvents(countryCode, page);
                     
-                    const eventPromises = events.map(event => {
-                        const eventData: CreateEventDto = {
-                            title: event.name || 'N/A',
-                            description: event.info?.summary || 'Nessuna descrizione disponibile',
-                            date: new Date(event.dates?.start?.localDate || Date.now()),
-                            venues: event._embedded?.venues.map(venue => ({
-                                name: venue.name || 'Location sconosciuta',
-                                city: { name: venue.city?.name || 'Città sconosciuta' }
-                            })) || [],
-                            category: event.classifications?.[0]?.segment?.name || 'Categoria sconosciuta',
-                            price: event.priceRanges?.map(priceRange => ({
-                                type: priceRange.type || 'Standard',
-                                currency: priceRange.currency || 'EUR',
-                                min: priceRange.min || 0,
-                                max: priceRange.max || 0
-                            })) || [],
-                            totalTickets: event.seatmap?.staticUrl ? 1000 : 0,
-                            availableTickets: event.seatmap?.staticUrl ? 1000 : 0,
-                            imageUrl: event.images?.[0]?.url || 'URL immagine non disponibile',
-                            countryCode,
-                        };
-                        return this.eventsService.create(eventData);
-                    });
+                    const eventPromises = events.map(async event => {
+                        try {
+                            const eventData: CreateEventDto = {
+                                title: event.name || 'N/A',
+                                description: event.info?.summary || 'Nessuna descrizione disponibile',
+                                date: new Date(event.dates?.start?.localDate || Date.now()),
+                                venues: event._embedded?.venues.map(venue => ({
+                                    name: venue.name || 'Location sconosciuta',
+                                    city: { name: venue.city?.name || 'Città sconosciuta' }
+                                })) || [],
+                                category: event.classifications?.[0]?.segment?.name || 'Categoria sconosciuta',
+                                price: event.priceRanges?.map(priceRange => ({
+                                    type: priceRange.type || 'Standard',
+                                    currency: priceRange.currency || 'EUR',
+                                    min: priceRange.min || 0,
+                                    max: priceRange.max || 0
+                                })) || [],
+                                totalTickets: event.seatmap?.staticUrl ? 1000 : 0,
+                                availableTickets: event.seatmap?.staticUrl ? 1000 : 0,
+                                imageUrl: event.images?.[0]?.url || 'URL immagine non disponibile',
+                                countryCode,
+                            };
+                            return this.eventsService.create(eventData);
+                        } catch (err) {
+                            console.error('Errore nel singolo evento:', err, 'Dati evento:', event);
+                        }
+                    });                    
 
                     await Promise.all(eventPromises);
 
@@ -114,6 +118,7 @@ export class EventsController {
     // Recupera un singolo evento per ID
     @Get(':id')
     async findOne(@Param('id') id: string) {
+        this.logger.log(`Richiesta evento ID: ${id}`);
         try {
             const event = await this.eventsService.findOne(id);
             if (!event) {
