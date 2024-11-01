@@ -12,7 +12,9 @@ export class AuthController {
 
     @Post('register')
     async register(@Body() body: CreateUserDto) {
-        console.log('Body della richiesta:', body); // Log per debug
+        // Crea una copia del body senza il campo password
+        const { password, ...bodyWithoutPassword } = body;
+        console.log('Body della richiesta:', bodyWithoutPassword); // Log per debug
         try {
             const response = await this.authService.register(body);
             return response;  // Restituisce direttamente l'oggetto { message: string }
@@ -24,6 +26,8 @@ export class AuthController {
     
 @Post('login')
 async login(@Body() body: { email: string; password: string }) {
+    const { password, ...bodyWithoutPassword } = body;
+    console.log('Body della richiesta (senza password):', bodyWithoutPassword); // Log per debug
     try {
         // Chiama il servizio di login e restituisce il token
         const token = await this.authService.login(body.email, body.password);

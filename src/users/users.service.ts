@@ -10,7 +10,7 @@ export class UsersService {
 
    async getAllUsers(): Promise<User[]> {
     try {
-        return await this.userModel.find().exec();
+        return await this.userModel.find().select('-password').exec();
     } catch (error) {
         throw new InternalServerErrorException('Errore durante il recupero degli utenti');
     }
@@ -18,7 +18,7 @@ export class UsersService {
 
    async getOneUser(id: string): Promise<User> {
     try {
-        const user = await this.userModel.findById(id).exec();
+        const user = await this.userModel.findById(id).select('-password').exec();
         if (!user) {
       throw new NotFoundException(`L\'utente con id ${id} non è stato trovato`);
     }
@@ -30,7 +30,5 @@ export class UsersService {
         }
         throw new InternalServerErrorException('Errore durante il recupero dell\'utente');
     }
-    
-    
   }
 }

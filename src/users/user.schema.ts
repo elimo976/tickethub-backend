@@ -19,7 +19,7 @@ export class User {
     @Prop({ required: true, unique: true })
     email: string; // Nel db non possono esistere 2 utenti con la stessa email
 
-    @Prop({ required: true })
+    @Prop({ required: true, select: false }) // select: false esclude il campo password di
     password: string;
 
     @Prop({ type: String, enum: UserRole, default: UserRole.USER })

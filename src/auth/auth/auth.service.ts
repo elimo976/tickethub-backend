@@ -36,6 +36,7 @@ export class AuthService {
         // Salva l'utente nel database
         try {
             await newUser.save();
+
             if (role === UserRole.ADMIN) {
                 return { message: 'Registrazione completata. L\'account admin è in attesa di approvazione.' };
             } else {
@@ -49,7 +50,7 @@ export class AuthService {
 
     async login(email: string, password: string): Promise<{ accessToken: string }> {
         try {
-            const user = await this.userModel.findOne({ email: email });
+            const user = await this.userModel.findOne({ email: email }).select('+password'); // per validare la password devo volontariamente includerla, ricorda che nel modello era impostata a select: false
 
             if (!user) {
                 throw new UnauthorizedException('Email non trovata');
