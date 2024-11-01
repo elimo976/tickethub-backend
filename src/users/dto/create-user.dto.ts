@@ -1,6 +1,19 @@
+import { IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
+import { UserRole } from 'src/users/user.schema';
+
 export class CreateUserDto {
-    username: string;
-    password: string;
+    @IsNotEmpty()
+    firstName: string;
+
+    @IsNotEmpty()
+    lastName: string;
+
+    @IsEmail()
     email: string;
-    isAdmin?: boolean; // true se admin, false o undefined se utente normale
+
+    @IsNotEmpty()
+    password: string;
+
+    @IsOptional()
+    role?: UserRole; // Questo campo è opzionale
 }

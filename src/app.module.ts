@@ -8,6 +8,7 @@ import { TicketsModule } from './tickets/tickets.module';
 import { HttpModule } from '@nestjs/axios';
 import { ConfigModule } from '@nestjs/config';
 import { TicketmasterModule } from './ticketmaster/ticketmaster.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { TicketmasterModule } from './ticketmaster/ticketmaster.module';
     UsersModule,
     TicketsModule,
     HttpModule,
-    TicketmasterModule
+    TicketmasterModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -8,22 +8,25 @@ export enum UserRole {
     USER = 'user',
 }
 
-@Schema({ timestamps: true })
+@Schema({ timestamps: true }) // Gestisce createdAt e updatedAt automaticamente
 export class User {
     @Prop({ required: true })
-    username: string;
+    firstName: string;
+
+    @Prop({ required: true })
+    lastName: string;
+
+    @Prop({ required: true, unique: true })
+    email: string; // Nel db non possono esistere 2 utenti con la stessa email
 
     @Prop({ required: true })
     password: string;
 
-    @Prop({ required: true })
-    email: string;
-
     @Prop({ type: String, enum: UserRole, default: UserRole.USER })
     role: UserRole;
 
-    @Prop({ default: Date.now })
-    createdAt: Date;
+    @Prop({ default: false})
+    isApproved: boolean;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
