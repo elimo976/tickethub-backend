@@ -3,26 +3,39 @@ import { AuthService } from './auth.service';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { UserRole } from 'src/users/user.schema';
-import { RolesGuard } from '../roles/roles.guard';
-import { Roles } from '../roles.decorator';
+import { RolesGuard } from './roles/roles.guard';
+import { Roles } from './roles/roles.decorator';
 
 @Controller('auth')
 export class AuthController {
     constructor(private authService: AuthService) {}
 
-    @Post('register')
-    async register(@Body() body: CreateUserDto) {
-        // Crea una copia del body senza il campo password
-        const { password, ...bodyWithoutPassword } = body;
-        console.log('Body della richiesta:', bodyWithoutPassword); // Log per debug
-        try {
-            const response = await this.authService.register(body);
-            return response;  // Restituisce direttamente l'oggetto { message: string }
-        } catch (error) {
-            console.error('Errore durante la registrazione:', error);
-            throw new BadRequestException('Errore durante la registrazione: ' + error.message);
+@Post('register')
+async register(@Body() body: CreateUserDto) {
+    // Crea una copia del body senza il campo password
+    const { password, ...bodyWithoutPassword } = body;
+    console.log('Body della richiesta:', bodyWithoutPassword); // Log per debug
+    try {
+        const response = await this.authService.register(body);
+        // Restituisce direttamente l'oggetto con accessToken, come nel login
+        if (response.access_token) {
+            return {
+                statusCode: 201,
+                message: response.message,
+                accessToken: response.access_token,
+            };
+        } else {
+            // Gestisce il caso in cui l'utente è un admin in attesa di approvazione
+            return {
+                statusCode: 201,
+                message: response.message,
+            };
         }
-    }    
+    } catch (error) {
+        console.error('Errore durante la registrazione:', error);
+        throw new BadRequestException('Errore durante la registrazione: ' + error.message);
+    }
+}  
     
 @Post('login')
 async login(@Body() body: { email: string; password: string }) {
