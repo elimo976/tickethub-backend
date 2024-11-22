@@ -53,7 +53,7 @@ export class AuthService {
         };
       } else {
         // Genera il payload per il token JWT
-        const payload = { email: savedUser.email, sub: savedUser._id };
+        const payload = { email: savedUser.email, userId: savedUser._id };
 
         // Genera e restituisce il token JWT per l'utente registrato
         const accessToken = this.jwtService.sign(payload);

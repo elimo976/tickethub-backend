@@ -10,9 +10,16 @@ async function bootstrap() {
     credentials: true,
   });
 
-  await app.listen(3000, () =>{
-    console.log("Tickethub backend started");
+  await app.listen(3000, () => {
+    console.log('Tickethub backend started');
   });
-  
+
+  // Middleware globale di logging per tracciare le richieste
+  app.use((req, res, next) => {
+    console.log(
+      `Global Middleware: Received ${req.method} request to ${req.url}`,
+    );
+    next();
+  });
 }
 bootstrap();
