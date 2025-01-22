@@ -1,4 +1,12 @@
-import { Controller, Get, Param, Patch, Body, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Body,
+  Delete,
+  NotFoundException,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.schema';
 import { UpdateProfileDto } from './dto/update-profile.dto';
@@ -26,7 +34,6 @@ export class UsersController {
     @Body() updateProfileDto: UpdateProfileDto, // DTO per i dati di aggiornamento
   ): Promise<User> {
     console.log(`Controller - PATCH /users/profile/${userId}`);
-    console.log('DTO ricevuto:', updateProfileDto); // Logga il payload ricevuto
     return this.userService.updateProfile(userId, updateProfileDto);
   }
 
@@ -35,7 +42,7 @@ export class UsersController {
   async deleteUser(@Param('id') id: string) {
     const result = await this.userService.deleteUser(id);
     if (!result) {
-      throw new Error('Account non trovato');
+      throw new NotFoundException('Account non trovato');
     }
     return { message: 'Account eliminato con successo' };
   }

@@ -9,6 +9,10 @@ import { HttpModule } from '@nestjs/axios';
 import { ConfigModule } from '@nestjs/config';
 import { TicketmasterModule } from './ticketmaster/ticketmaster.module';
 import { AuthModule } from './auth/auth.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+import { AvatarsController } from './avatars/avatars.controller';
+import { AvatarsModule } from './avatars/avatars.module';
 
 @Module({
   imports: [
@@ -21,9 +25,13 @@ import { AuthModule } from './auth/auth.module';
     TicketsModule,
     HttpModule,
     TicketmasterModule,
-    AuthModule
+    AuthModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
+    AvatarsModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, AvatarsController],
   providers: [AppService],
 })
 export class AppModule {}

@@ -10,6 +10,7 @@ export enum UserRole {
 
 @Schema({ timestamps: true }) // Gestisce createdAt e updatedAt automaticamente
 export class User {
+  [x: string]: any;
   @Prop({ required: true })
   firstName: string;
 
@@ -71,6 +72,9 @@ export class User {
 
   @Prop()
   bio?: string;
+
+  @Prop()
+  avatar: string;
 
   @Prop({
     default:

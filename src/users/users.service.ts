@@ -82,4 +82,21 @@ export class UsersService {
     const result = await this.userModel.deleteOne({ _id: id }).exec();
     return result.deletedCount > 0; // Ritorna true se l'account è stato trovato ed eliminato
   }
+
+  async getAvatars(): Promise<string[]> {
+    try {
+      return [
+        '/avatars/avatar1.png',
+        '/avatars/avatar2.png',
+        '/avatars/avatar3.png',
+        '/avatars/avatar4.png',
+        '/avatars/avatar5.png',
+      ];
+    } catch (error) {
+      throw new InternalServerErrorException(
+        'Errore durante il recupero delle immagini delle avatars',
+        error,
+      );
+    }
+  }
 }
