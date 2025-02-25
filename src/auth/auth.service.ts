@@ -102,12 +102,47 @@ export class AuthService {
     }
   }
 
-  async approveUser(userId: string): Promise<User> {
-    const user = await this.userModel.findById(userId);
-    if (!user) {
+  async approveAdmin(
+    adminId: string,
+    approverId: string,
+  ): Promise<{ message: string; firstName: string; lastName: string }> {
+    // Trova chi sta cercando di approvare
+    const approver = await this.userModel.findById(approverId);
+    if (!approver) {
+      throw new NotFoundException('Amministratore non trovato');
+    }
+    if (approver.role !== UserRole.ADMIN || !approver.isApproved) {
+      throw new UnauthorizedException(
+        'Solo un admin approvato può approvare altri admin',
+      );
+    }
+
+    // Trova l'admin da approvare
+    const adminToApprove = await this.userModel.findById(adminId);
+    if (!adminToApprove) {
       throw new NotFoundException('Utente non trovato');
     }
-    user.isApproved = true;
-    return user.save();
+    if (adminToApprove.role !== UserRole.ADMIN) {
+      throw new ConflictException(
+        "Puoi approvare solo utenti con ruolo 'admin'",
+      );
+    }
+    if (adminToApprove.isApproved) {
+      return {
+        message: 'Questo admin è già stato approvato',
+        firstName: adminToApprove.firstName,
+        lastName: adminToApprove.lastName,
+      };
+    }
+
+    // Approva l'admin
+    adminToApprove.isApproved = true;
+    await adminToApprove.save();
+
+    return {
+      message: `L'admin ${adminToApprove.firstName} ${adminToApprove.lastName} è stato approvato con successo.`,
+      firstName: adminToApprove.firstName,
+      lastName: adminToApprove.lastName,
+    };
   }
 }

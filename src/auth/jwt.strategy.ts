@@ -5,7 +5,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { ConfigService } from '@nestjs/config';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User, UserDocument } from '../users/user.schema';
+import { User, UserDocument, UserRole } from '../users/user.schema';
 import { JwtPayload } from './jwt-payload.interface';
 
 @Injectable()
@@ -22,9 +22,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: JwtPayload): Promise<User> {
+    console.log('JWT Payload:', payload);
     const user = await this.userModel.findById(payload.sub).exec();
-    if (!user || !user.isApproved) {
-      return null; // L'utente deve essere approvato
+    if (!user || (user.role === UserRole.ADMIN && !user.isApproved)) {
+      return null; // Solo gli admin devono essere approvati
     }
     return user;
   }

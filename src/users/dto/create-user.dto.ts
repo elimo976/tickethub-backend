@@ -15,5 +15,8 @@ export class CreateUserDto {
   password: string;
 
   @IsOptional()
-  role?: UserRole; // Questo campo è opzionale
+  role?: UserRole; // Questo campo è opzionale e di default a 'user'
+
+  @IsOptional()
+  isApproved?: boolean; // Il campo isApproved sarà di default false per gli admin
 }

@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Request,
   UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
@@ -71,13 +72,15 @@ export class AuthController {
     }
   }
 
-  @Patch('approve/:userId')
-  @UseGuards(AuthGuard('jwt'), RolesGuard) // AuthGuard verifica il token JWT e RolesGuard controlla se l’utente ha il ruolo admin.
-  @Roles(UserRole.ADMIN) // Restringe l'accesso ai soli admin approvati
-  async approveUser(@Param('userId') userId: string) {
-    const user = await this.authService.approveUser(userId);
-    return {
-      message: `Utente ${user.firstName} ${user.lastName} approvato con successo`,
-    };
+  @Patch('approve-admin/:adminId')
+  @UseGuards(AuthGuard('jwt'), RolesGuard)
+  @Roles(UserRole.ADMIN)
+  async approveAdmin(@Param('adminId') adminId: string, @Request() req) {
+    const approverId = req.user.userId; // Recupera l'ID di chi approva
+
+    const { message, firstName, lastName } =
+      await this.authService.approveAdmin(adminId, approverId);
+
+    return { message, firstName, lastName };
   }
 }
