@@ -1,22 +1,54 @@
-import { IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
-import { UserRole } from 'src/users/user.schema';
+import {
+  IsString,
+  IsEmail,
+  IsOptional,
+  IsPhoneNumber,
+  IsDate,
+  IsNotEmpty,
+} from 'class-validator';
+import { UserRole } from '../user.schema';
 
 export class CreateUserDto {
+  @IsString()
   @IsNotEmpty()
   firstName: string;
 
+  @IsString()
   @IsNotEmpty()
   lastName: string;
 
   @IsEmail()
+  @IsNotEmpty()
   email: string;
 
+  @IsString()
   @IsNotEmpty()
   password: string;
 
   @IsOptional()
-  role?: UserRole; // Questo campo è opzionale e di default a 'user'
+  role: UserRole;
 
+  @IsPhoneNumber(null)
   @IsOptional()
-  isApproved?: boolean; // Il campo isApproved sarà di default false per gli admin
+  phoneNumber?: string;
+
+  @IsDate()
+  @IsOptional()
+  dateOfBirth?: Date;
+
+  @IsString()
+  @IsOptional()
+  street?: string;
+
+  @IsString()
+  @IsOptional()
+  city?: string;
+
+  @IsString()
+  @IsOptional()
+  zipCode?: string;
+
+  @IsString()
+  @IsOptional()
+  country?: string;
 }
