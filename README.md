@@ -1,3 +1,10 @@
+## Database Setup
+
+Per importare il file `users.json` nella collezione `users` del database `tickethubdb`, esegui il seguente comando:
+
+```bash
+mongoimport --db tickethubdb --collection users --file data/users.json --jsonArray
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
