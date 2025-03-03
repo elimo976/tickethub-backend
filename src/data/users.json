@@ -304,9 +304,18 @@
     "$date": "2025-03-03T14:03:09.294Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T14:03:09.294Z"
+    "$date": "2025-03-03T22:21:41.285Z"
   },
-  "__v": 0
+  "__v": 0,
+  "address": {
+    "street": "Via Napoli 12",
+    "city": "Bari",
+    "zipCode": "70100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c62b759776f58d8585c903"
+    }
+  }
 },
 {
   "_id": {
@@ -324,9 +333,22 @@
     "$date": "2025-03-03T14:04:45.729Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T14:04:45.729Z"
+    "$date": "2025-03-03T22:20:26.948Z"
   },
-  "__v": 0
+  "__v": 0,
+  "address": {
+    "street": "Via Mazzini 14",
+    "city": "Genova",
+    "zipCode": "16100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c62b2a9776f58d8585c8ff"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "2014-02-12T00:00:00.000Z"
+  },
+  "phoneNumber": "3251598753"
 },
 {
   "_id": {
@@ -336,7 +358,7 @@
   "lastName": "Ricci",
   "email": "marta.ricci@mail.com",
   "password": "$2b$10$kIO.5ipex9LqY5aea0A.DOS5jV86Lsws1MPvUmLK4ygU82K.n8Hrq",
-  "role": "user",
+  "role": "admin",
   "isApproved": true,
   "interests": [],
   "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
@@ -344,9 +366,22 @@
     "$date": "2025-03-03T14:06:03.964Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T14:06:03.964Z"
+    "$date": "2025-03-03T22:18:51.947Z"
   },
-  "__v": 0
+  "__v": 0,
+  "address": {
+    "street": "Viale Europa 22",
+    "city": "Bologna",
+    "zipCode": "40100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c62acb9776f58d8585c8fb"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "1999-02-05T00:00:00.000Z"
+  },
+  "phoneNumber": "3692587412"
 },
 {
   "_id": {
@@ -356,7 +391,7 @@
   "lastName": "Mancini",
   "email": "giorgio.mancini@example.com",
   "password": "$2b$10$lNNVTXaRlcQX/t0x5D1TRuRfx3CBop3hl659dzkEiei2mt3m9lv0a",
-  "role": "user",
+  "role": "admin",
   "isApproved": true,
   "interests": [],
   "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
@@ -364,9 +399,22 @@
     "$date": "2025-03-03T14:07:13.983Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T14:07:13.983Z"
+    "$date": "2025-03-03T22:16:24.374Z"
   },
-  "__v": 0
+  "__v": 0,
+  "address": {
+    "street": "Corso Vittorio 25",
+    "city": "Torino",
+    "zipCode": "10100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c62a389776f58d8585c8f3"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "1988-06-11T00:00:00.000Z"
+  },
+  "phoneNumber": "37845126"
 },
 {
   "_id": {
@@ -384,7 +432,20 @@
     "$date": "2025-03-03T14:08:41.089Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T14:08:41.089Z"
+    "$date": "2025-03-03T22:14:36.076Z"
   },
-  "__v": 0
+  "__v": 0,
+  "address": {
+    "street": "Via Roma 10",
+    "city": "Milano",
+    "zipCode": "20100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c629cc9776f58d8585c8ee"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "2002-03-12T00:00:00.000Z"
+  },
+  "phoneNumber": "3297841118"
 }]
