@@ -1,268 +1,390 @@
 [{
-    "_id": {
-      "$oid": "6723ad75abf5b9ed5b1f673a"
-    },
-    "firstName": "Mario",
-    "lastName": "Rossi",
-    "email": "mario.rossi@example.com",
-    "password": "$2b$10$oPKhTXyFxHgkOKJ/AH2mCeQ21bufpgGiXp8baAoOwcdIO2ObZ1yQ.",
-    "role": "user",
-    "createdAt": {
-      "$date": "2024-10-31T16:16:53.827Z"
-    },
-    "updatedAt": {
-      "$date": "2025-01-21T18:41:04.098Z"
-    },
-    "__v": 0,
-    "address": {
-      "street": "Via Monza, 5",
-      "city": "Milano",
-      "country": "Italia",
-      "_id": {
-        "$oid": "6740cca0844913a80a1739ed"
-      }
-    },
-    "interests": [
-      "musica",
-      "sport"
-    ],
-    "bio": "Mi chiamo Giovanni, suono la chitarra da quando ero piccolo, amo ascoltare musica live e frequentare persone con i miei stessi gusti musicali.",
-    "dateOfBirth": {
-      "$date": "1980-12-11T23:00:00.000Z"
-    },
-    "phoneNumber": "+39 333 1234567"
+  "_id": {
+    "$oid": "6723ad75abf5b9ed5b1f673a"
   },
-  {
-    "_id": {
-      "$oid": "6723b656e1482786f50b25de"
-    },
-    "firstName": "Giovanna",
-    "lastName": "Bianchi",
-    "email": "giovanna.bianchi@example.com",
-    "password": "$2b$10$7A07u/lSjF39C2tUuKUWLOFPzRQLenGBUwHOR3lKvAhAXEvmtKTmG",
-    "role": "user",
-    "isApproved": true,
-    "createdAt": {
-      "$date": "2024-10-31T16:54:46.044Z"
-    },
-    "updatedAt": {
-      "$date": "2024-10-31T16:54:46.044Z"
-    },
-    "__v": 0
+  "firstName": "Mario",
+  "lastName": "Rossi",
+  "email": "mario.rossi@example.com",
+  "password": "$2b$10$oPKhTXyFxHgkOKJ/AH2mCeQ21bufpgGiXp8baAoOwcdIO2ObZ1yQ.",
+  "role": "user",
+  "createdAt": {
+    "$date": "2024-10-31T16:16:53.827Z"
   },
-  {
+  "updatedAt": {
+    "$date": "2025-01-21T18:41:04.098Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Monza, 5",
+    "city": "Milano",
+    "country": "Italia",
     "_id": {
-      "$oid": "6723b683e1482786f50b25e1"
-    },
-    "firstName": "Bruno",
-    "lastName": "Verdi",
-    "email": "bruno.verdi@example.com",
-    "password": "Prova.123",
-    "role": "admin",
-    "isApproved": true,
-    "createdAt": {
-      "$date": "2024-10-31T16:55:31.794Z"
-    },
-    "updatedAt": {
-      "$date": "2025-03-01T01:43:12.642Z"
-    },
-    "__v": 0,
-    "address": {
-      "street": "Via Rossini, 4",
-      "city": "Mantova",
-      "zipCode": "",
-      "country": "",
-      "_id": {
-        "$oid": "67c266308cc8e2b99aeb0c6f"
-      }
-    },
-    "phoneNumber": "3211234588",
-    "dateOfBirth": {
-      "$date": "1976-10-23T00:00:00.000Z"
+      "$oid": "6740cca0844913a80a1739ed"
     }
   },
-  {
-    "_id": {
-      "$oid": "6740eb9d844913a80a173a6b"
-    },
-    "firstName": "Jack",
-    "lastName": "Jackoloso",
-    "email": "jackilnano@gmail.com",
-    "password": "$2b$10$n/MGjAJGe/ZRemY2DVXbwuSD3C6cgtnRbgiSW7hyUYsL0wVhPznKS",
-    "role": "user",
-    "isApproved": true,
-    "interests": [],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2024-11-22T20:37:49.811Z"
-    },
-    "updatedAt": {
-      "$date": "2024-11-22T20:37:49.811Z"
-    },
-    "__v": 0
+  "interests": [
+    "musica",
+    "sport"
+  ],
+  "bio": "Mi chiamo Giovanni, suono la chitarra da quando ero piccolo, amo ascoltare musica live e frequentare persone con i miei stessi gusti musicali.",
+  "dateOfBirth": {
+    "$date": "1980-12-11T23:00:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "674739f28d43fdcbb92d4bfb"
-    },
-    "firstName": "Gianna",
-    "lastName": "Viola",
-    "email": "gianna.viola@example.com",
-    "password": "$2b$10$wD.CeUqZ/AczF8t.GDF7oerxvRrJO.NU5CUOhYMkRsIDlzI4YMhz2",
-    "role": "user",
-    "isApproved": true,
-    "interests": [],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2024-11-27T15:25:38.637Z"
-    },
-    "updatedAt": {
-      "$date": "2024-11-27T15:25:38.637Z"
-    },
-    "__v": 0
+  "phoneNumber": "+39 333 1234567"
+},
+{
+  "_id": {
+    "$oid": "6723b656e1482786f50b25de"
   },
-  {
-    "_id": {
-      "$oid": "679a5974e2121437bb8be0b3"
-    },
-    "firstName": "admin",
-    "lastName": "admin",
-    "email": "admin@mail.com",
-    "password": "$2b$10$CzKh7gPbJCEOZgT.vJcKj.Ps3kFm8AUrPist1wf2l5EA1Es5B7nbC",
-    "role": "user",
-    "isApproved": true,
-    "interests": [],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2025-01-29T16:38:12.412Z"
-    },
-    "updatedAt": {
-      "$date": "2025-01-29T16:38:12.412Z"
-    },
-    "__v": 0
+  "firstName": "Giovanna",
+  "lastName": "Bianchi",
+  "email": "giovanna.bianchi@example.com",
+  "password": "$2b$10$7A07u/lSjF39C2tUuKUWLOFPzRQLenGBUwHOR3lKvAhAXEvmtKTmG",
+  "role": "admin",
+  "isApproved": true,
+  "createdAt": {
+    "$date": "2024-10-31T16:54:46.044Z"
   },
-  {
-    "_id": {
-      "$oid": "67c0f6d73842e6179af87944"
-    },
-    "firstName": "Marco",
-    "lastName": "Rossi",
-    "email": "marco.rossi@example.com",
-    "password": "$2b$10$C6saYxhGyKBUxArBTgz92uBfV3i/1b2S0Y83eGCosB.RHcI6KlTdC",
-    "role": "user",
-    "isApproved": true,
-    "interests": [],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2025-02-27T23:35:51.468Z"
-    },
-    "updatedAt": {
-      "$date": "2025-02-27T23:35:51.468Z"
-    },
-    "__v": 0
+  "updatedAt": {
+    "$date": "2025-03-03T13:44:58.514Z"
   },
-  {
+  "__v": 0,
+  "address": {
+    "street": "Via Genova, 34",
+    "city": "Bologna",
+    "zipCode": "40100",
+    "country": "Italia",
     "_id": {
-      "$oid": "67c1e7cf80b6f84c0d454a6b"
-    },
-    "firstName": "prova",
-    "lastName": "prova",
-    "email": "prova@gmail.com",
-    "password": "$2b$10$aQzWbvL7hvEJ8HAPXqMP7OJOWM5NuP./2b7c7Eb7esUggUQ35EIvi",
-    "role": "user",
-    "isApproved": true,
-    "interests": [],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2025-02-28T16:43:59.629Z"
-    },
-    "updatedAt": {
-      "$date": "2025-02-28T16:43:59.629Z"
-    },
-    "__v": 0
-  },
-  {
-    "_id": {
-      "$oid": "67c223598cc8e2b99aeb0b9f"
-    },
-    "firstName": "provaprova",
-    "lastName": "provaprova",
-    "email": "provaprova@mail.com",
-    "password": "$2b$10$36.4yBYiuxvGR6hcE8wsgeUCZyxqIRJW6phocsxknyUNyODQhMb1W",
-    "role": "user",
-    "isApproved": true,
-    "interests": [],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2025-02-28T20:58:01.252Z"
-    },
-    "updatedAt": {
-      "$date": "2025-02-28T20:58:01.252Z"
-    },
-    "__v": 0
-  },
-  {
-    "_id": {
-      "$oid": "67c224808cc8e2b99aeb0ba5"
-    },
-    "firstName": "ProvaT",
-    "lastName": "ProvaT",
-    "email": "provat@example.com",
-    "password": "$2b$10$yJ1MZYOtDsOcbOHmrJ8bm.oXSiTfwjkMpmFRsOAFtomPwRones536",
-    "role": "user",
-    "isApproved": true,
-    "interests": [
-      "musica",
-      "sport"
-    ],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2025-02-28T21:02:56.664Z"
-    },
-    "updatedAt": {
-      "$date": "2025-02-28T22:03:41.791Z"
-    },
-    "__v": 0,
-    "address": {
-      "street": "Via Monza, 5",
-      "city": "Milano",
-      "country": "Italia",
-      "_id": {
-        "$oid": "6740cca0844913a80a1739ed"
-      }
-    },
-    "bio": "",
-    "dateOfBirth": {
-      "$date": "1980-12-11T23:00:00.000Z"
-    },
-    "phoneNumber": "+39 333 1234567"
-  },
-  {
-    "_id": {
-      "$oid": "67c266888cc8e2b99aeb0c75"
-    },
-    "firstName": "Lisa",
-    "lastName": "Violetta",
-    "email": "lisaviola@gmail.com",
-    "password": "Prova.123",
-    "role": "admin",
-    "isApproved": false,
-    "interests": [],
-    "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
-    "createdAt": {
-      "$date": "2025-03-01T01:44:40.675Z"
-    },
-    "updatedAt": {
-      "$date": "2025-03-01T01:47:09.307Z"
-    },
-    "__v": 0,
-    "address": {
-      "street": "",
-      "city": "",
-      "zipCode": "",
-      "country": "",
-      "_id": {
-        "$oid": "67c2671d8cc8e2b99aeb0c7e"
-      }
+      "$oid": "67c5b25a32f0f5bde34b0919"
     }
-  }]
+  },
+  "dateOfBirth": {
+    "$date": "2002-03-06T00:00:00.000Z"
+  },
+  "phoneNumber": "3211234590"
+},
+{
+  "_id": {
+    "$oid": "6723b683e1482786f50b25e1"
+  },
+  "firstName": "Bruno",
+  "lastName": "Verde",
+  "email": "bruno.verdi@example.com",
+  "password": "Verde.123",
+  "role": "user",
+  "isApproved": true,
+  "createdAt": {
+    "$date": "2024-10-31T16:55:31.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:46:08.223Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Rossini, 4",
+    "city": "Mantova",
+    "zipCode": "46100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c5b2a032f0f5bde34b091d"
+    }
+  },
+  "phoneNumber": "3211234588",
+  "dateOfBirth": {
+    "$date": "1983-10-15T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6740eb9d844913a80a173a6b"
+  },
+  "firstName": "Jack",
+  "lastName": "Jack",
+  "email": "jackilcane@gmail.com",
+  "password": "$2b$10$n/MGjAJGe/ZRemY2DVXbwuSD3C6cgtnRbgiSW7hyUYsL0wVhPznKS",
+  "role": "admin",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2024-11-22T20:37:49.811Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:48:24.836Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Berlinguer, 98",
+    "city": "Catania",
+    "zipCode": "95100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c5b32832f0f5bde34b0921"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "2020-07-11T00:00:00.000Z"
+  },
+  "phoneNumber": "3651295971"
+},
+{
+  "_id": {
+    "$oid": "674739f28d43fdcbb92d4bfb"
+  },
+  "firstName": "Gianni",
+  "lastName": "Viola",
+  "email": "gianna.viola@example.com",
+  "password": "Gianni.123",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2024-11-27T15:25:38.637Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T21:32:19.960Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "",
+    "city": "",
+    "zipCode": "",
+    "country": "",
+    "_id": {
+      "$oid": "67c4ce6309881d50daa4c1ea"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "679a5974e2121437bb8be0b3"
+  },
+  "firstName": "Admin",
+  "lastName": "admin",
+  "email": "admin@mail.com",
+  "password": "Admin.123",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-01-29T16:38:12.412Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:50:07.462Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Piacenza, 8",
+    "city": "Guidonia",
+    "zipCode": "00012",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c5b38f32f0f5bde34b0925"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "1975-07-11T00:00:00.000Z"
+  },
+  "phoneNumber": "3987845129"
+},
+{
+  "_id": {
+    "$oid": "67c0f6d73842e6179af87944"
+  },
+  "firstName": "Marco",
+  "lastName": "Rossi",
+  "email": "marco.rossi@example.com",
+  "password": "$2b$10$C6saYxhGyKBUxArBTgz92uBfV3i/1b2S0Y83eGCosB.RHcI6KlTdC",
+  "role": "admin",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-02-27T23:35:51.468Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:52:31.036Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Liguria, 76",
+    "city": "La Spezia",
+    "zipCode": "19100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c5b41f32f0f5bde34b0929"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "2016-02-02T00:00:00.000Z"
+  },
+  "phoneNumber": "36945781954"
+},
+{
+  "_id": {
+    "$oid": "67c1e7cf80b6f84c0d454a6b"
+  },
+  "firstName": "Miriam",
+  "lastName": "Giallini",
+  "email": "miriam@gmail.com",
+  "password": "$2b$10$aQzWbvL7hvEJ8HAPXqMP7OJOWM5NuP./2b7c7Eb7esUggUQ35EIvi",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-02-28T16:43:59.629Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:00:51.956Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Viale delle Americhe, 175",
+    "city": "Ragusa",
+    "zipCode": "97100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c5b61332f0f5bde34b093d"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "1998-03-13T00:00:00.000Z"
+  },
+  "phoneNumber": "3784512698"
+},
+{
+  "_id": {
+    "$oid": "67c223598cc8e2b99aeb0b9f"
+  },
+  "firstName": "Cecilia",
+  "lastName": "Neri",
+  "email": "cecilianeri@mail.com",
+  "password": "provaB.123",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-02-28T20:58:01.252Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T13:55:12.126Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Giolitti, 4",
+    "city": "Parma",
+    "zipCode": "43121",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c5b4c032f0f5bde34b0931"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "2004-08-13T00:00:00.000Z"
+  },
+  "phoneNumber": "3451298745"
+},
+{
+  "_id": {
+    "$oid": "67c5b69d32f0f5bde34b0945"
+  },
+  "firstName": "Alice",
+  "lastName": "Bianchi",
+  "email": "alice@example.com",
+  "password": "$2b$10$W7oGSCrni81mrz2/ZM7Cwes6Vh1.OzwNo1YIQfjWH4se1NpJdKsTW",
+  "role": "admin",
+  "isApproved": false,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-03T14:03:09.294Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:03:09.294Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c5b6fd32f0f5bde34b0949"
+  },
+  "firstName": "Paolo",
+  "lastName": "Moretti",
+  "email": "moretti@mail.com",
+  "password": "$2b$10$xQZKBqC3ks1GEJSE5I7IiO/AbHP6gKzV7An5WHu/X/an5ZXzG/3vG",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-03T14:04:45.729Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:04:45.729Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c5b74b32f0f5bde34b094d"
+  },
+  "firstName": "Marta",
+  "lastName": "Ricci",
+  "email": "marta.ricci@mail.com",
+  "password": "$2b$10$kIO.5ipex9LqY5aea0A.DOS5jV86Lsws1MPvUmLK4ygU82K.n8Hrq",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-03T14:06:03.964Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:06:03.964Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c5b79132f0f5bde34b0951"
+  },
+  "firstName": "Giorgio",
+  "lastName": "Mancini",
+  "email": "giorgio.mancini@example.com",
+  "password": "$2b$10$lNNVTXaRlcQX/t0x5D1TRuRfx3CBop3hl659dzkEiei2mt3m9lv0a",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-03T14:07:13.983Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:07:13.983Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67c5b7e932f0f5bde34b0955"
+  },
+  "firstName": "Simona",
+  "lastName": "Ferrari",
+  "email": "simona.ferrari@gmail.com",
+  "password": "$2b$10$P5YTdqLtovAV3I3E5tuVyumX6KMYYgPJUZOFoqcWNERu9imYaLWmm",
+  "role": "admin",
+  "isApproved": false,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-03T14:08:41.089Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-03T14:08:41.089Z"
+  },
+  "__v": 0
+}]
