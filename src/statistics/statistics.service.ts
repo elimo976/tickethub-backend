@@ -39,4 +39,16 @@ export class StatisticsService {
       { $sort: { _id: 1 } }, // Ordina per età crescente
     ]);
   }
+
+  async getUsersByRole(): Promise<any> {
+    return await this.userModel.aggregate([
+      {
+        $group: {
+          _id: '$role',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { count: -1 } },
+    ]);
+  }
 }

@@ -13,4 +13,9 @@ export class StatisticsController {
   async getUsersByAge(): Promise<any> {
     return await this.statisticsService.getUsersByAge();
   }
+
+  @Get('role')
+  async getUsersByRole(): Promise<any> {
+    return await this.statisticsService.getUsersByRole();
+  }
 }
