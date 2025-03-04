@@ -13,6 +13,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AvatarsController } from './avatars/avatars.controller';
 import { AvatarsModule } from './avatars/avatars.module';
+import { StatisticsModule } from './statistics/statistics.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { AvatarsModule } from './avatars/avatars.module';
       rootPath: join(__dirname, '..', 'public'),
     }),
     AvatarsModule,
+    StatisticsModule,
   ],
   controllers: [AppController, AvatarsController],
   providers: [AppService],
