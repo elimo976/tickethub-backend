@@ -143,18 +143,22 @@
     "$date": "2024-11-27T15:25:38.637Z"
   },
   "updatedAt": {
-    "$date": "2025-03-02T21:32:19.960Z"
+    "$date": "2025-03-04T13:10:47.858Z"
   },
   "__v": 0,
   "address": {
-    "street": "",
-    "city": "",
-    "zipCode": "",
-    "country": "",
+    "street": "Strada Martana 345",
+    "city": "Viterbo",
+    "zipCode": "01100",
+    "country": "Italia",
     "_id": {
-      "$oid": "67c4ce6309881d50daa4c1ea"
+      "$oid": "67c6fbd79db8f44de5a9a7ca"
     }
-  }
+  },
+  "dateOfBirth": {
+    "$date": "2011-07-15T00:00:00.000Z"
+  },
+  "phoneNumber": "3621598634"
 },
 {
   "_id": {
@@ -358,7 +362,7 @@
   "lastName": "Ricci",
   "email": "marta.ricci@mail.com",
   "password": "$2b$10$kIO.5ipex9LqY5aea0A.DOS5jV86Lsws1MPvUmLK4ygU82K.n8Hrq",
-  "role": "admin",
+  "role": "user",
   "isApproved": true,
   "interests": [],
   "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
@@ -366,7 +370,7 @@
     "$date": "2025-03-03T14:06:03.964Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T22:18:51.947Z"
+    "$date": "2025-03-04T13:08:52.614Z"
   },
   "__v": 0,
   "address": {
@@ -375,7 +379,7 @@
     "zipCode": "40100",
     "country": "Italia",
     "_id": {
-      "$oid": "67c62acb9776f58d8585c8fb"
+      "$oid": "67c6fb649db8f44de5a9a7c1"
     }
   },
   "dateOfBirth": {
@@ -424,7 +428,7 @@
   "lastName": "Ferrari",
   "email": "simona.ferrari@gmail.com",
   "password": "$2b$10$P5YTdqLtovAV3I3E5tuVyumX6KMYYgPJUZOFoqcWNERu9imYaLWmm",
-  "role": "admin",
+  "role": "user",
   "isApproved": false,
   "interests": [],
   "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
@@ -432,7 +436,7 @@
     "$date": "2025-03-03T14:08:41.089Z"
   },
   "updatedAt": {
-    "$date": "2025-03-03T22:14:36.076Z"
+    "$date": "2025-03-04T13:09:12.613Z"
   },
   "__v": 0,
   "address": {
@@ -441,11 +445,143 @@
     "zipCode": "20100",
     "country": "Italia",
     "_id": {
-      "$oid": "67c629cc9776f58d8585c8ee"
+      "$oid": "67c6fb789db8f44de5a9a7c5"
     }
   },
   "dateOfBirth": {
     "$date": "2002-03-12T00:00:00.000Z"
   },
   "phoneNumber": "3297841118"
+},
+{
+  "_id": {
+    "$oid": "67c6f956ab564cd74213b31e"
+  },
+  "firstName": "Maria",
+  "lastName": "Gerani",
+  "email": "gerani.maria@mail.com",
+  "password": "$2b$10$51Qn7By3IN.gNzdhurlPV.Ruo8m6sKR6ednQFkW8CCg4LwIFTpTxy",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-04T13:00:06.798Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T13:22:48.850Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Veneto 55",
+    "city": "Genova",
+    "zipCode": "16100",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c6fea89db8f44de5a9a7e6"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "1992-03-05T00:00:00.000Z"
+  },
+  "phoneNumber": "3088745126"
+},
+{
+  "_id": {
+    "$oid": "67c6fa08ab564cd74213b326"
+  },
+  "firstName": "Antonio",
+  "lastName": "Marrone",
+  "email": "marrone@gmail.com",
+  "password": "$2b$10$KCu/Je9WXvZNVRHDxLNWBes0hI62STbYM9LU8L.qbinMmnFwSyg4C",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-04T13:03:04.841Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T13:21:28.733Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Prato",
+    "city": "Roma",
+    "zipCode": "00042",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c6fe589db8f44de5a9a7e2"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "1997-11-20T00:00:00.000Z"
+  },
+  "phoneNumber": "3998796001"
+},
+{
+  "_id": {
+    "$oid": "67c6fc4a9db8f44de5a9a7ce"
+  },
+  "firstName": "Pietro",
+  "lastName": "Gioia",
+  "email": "pietro.gioia@example.com",
+  "password": "$2b$10$oSJ3rnXr5NrjAi2zz609XeO5ITpkc9oJYR5bWbYL/tIs9YzOyrkd2",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-04T13:12:42.377Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T13:20:00.792Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Via Ugento 4",
+    "city": "Milano",
+    "zipCode": "20019",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c6fe009db8f44de5a9a7de"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "1982-03-15T00:00:00.000Z"
+  },
+  "phoneNumber": "3661478523"
+},
+{
+  "_id": {
+    "$oid": "67c6fcbb9db8f44de5a9a7d3"
+  },
+  "firstName": "Petra",
+  "lastName": "Felici",
+  "email": "petra.felici@mail.com",
+  "password": "$2b$10$io6mX6mUH2hJXMxqaelB9OVI.hup/xfgMXG8Ts67zYhrp.Pp3Yns2",
+  "role": "user",
+  "isApproved": true,
+  "interests": [],
+  "avatarUrl": "https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png",
+  "createdAt": {
+    "$date": "2025-03-04T13:14:35.522Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-04T13:18:24.039Z"
+  },
+  "__v": 0,
+  "address": {
+    "street": "Piazza Mazzini",
+    "city": "Torino",
+    "zipCode": "10024",
+    "country": "Italia",
+    "_id": {
+      "$oid": "67c6fda09db8f44de5a9a7d9"
+    }
+  },
+  "dateOfBirth": {
+    "$date": "2000-12-16T00:00:00.000Z"
+  },
+  "phoneNumber": "3666147890"
 }]
